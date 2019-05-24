@@ -1,0 +1,67 @@
+{
+    "items": [
+      {
+        "title": "Incident",
+        "component": "HomePage",
+        "class": "primary",
+        "icon": "home",
+        "open": false,
+        "active": true,
+        "children": []
+      },
+      {
+        "title": "Commande",
+        "component": "CommandePage",
+        "class": "secondary",
+        "icon": "cart",
+        "open": false,
+        "active": false,
+        "children": [
+          {
+            "title": "Nouvelle",
+            "component": "CommandePage",
+            "class": "danger",
+            "icon": "cart",
+            "active": false
+          },
+          {
+            "title": "Historique",
+            "component": "HistoriquesPage",
+            "class": "danger",
+            "icon": "archive",
+            "active": false
+          }
+        ]
+      },
+      {
+        "title": "Parametre",
+        "component": "ParametrePage",
+        "class": "danger",
+        "icon": "settings",
+        "open": false,
+        "active": false,
+        "children": []
+      },
+      {
+        "title": "A Propos",
+        "component": "AboutPage",
+        "class": "warning",
+        "icon": "information-circle",
+        "open": false,
+        "active": false,
+        "children": []
+      },
+      {
+        "title": "Deconnexion",
+        "component": "LoginPage",
+        "class": "ligth",
+        "icon": "power",
+        "active": false,
+        "open": false,
+        "children": []
+      }
+    ]
+   
+    
+  }
+  

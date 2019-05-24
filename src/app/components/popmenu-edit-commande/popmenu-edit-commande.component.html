@@ -1,0 +1,3 @@
+<ion-item (click)="validerCommande()" *ngIf="this.commande && this.commande.etatc.code !== 201 && this.commande.etatc.code !== 200 && (code && (code.includes(101) || code.includes(104)))"><ion-label>Ok pour livraison</ion-label></ion-item>
+<ion-item (click)="cloturerCommande()" *ngIf="this.commande && this.commande.etatc.code === 201 && (code && (code.includes(103) ||code.includes(102) || code.includes(101) || code.includes(104)))"><ion-label>Réceptionner</ion-label></ion-item>
+<ion-item (click)="printCommande($event)" ><ion-label>Imprimer</ion-label></ion-item>

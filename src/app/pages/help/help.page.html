@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Aide logiciel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="bg-white" no-margin>
+    <ion-card-content>
+      <h1 margin-bottom>
+        <ion-text color="primary"><strong>Aide</strong></ion-text>
+      </h1>
+      <p>Nous mettons à votre service un système d'aide intelligent qui vous fournit plus d'explication par rapport à nos logiciels.
+        emettez juste votre demande.
+      </p>
+      </ion-card-content>
+  </ion-card>
+  <!-- <ion-item lines="none" *ngFor="let answer of answers;let i=index">
+      <ion-chip padding style="padding: 12px"  slot="end" *ngIf="answer.from==='user'">
+          <ion-text>
+              {{answer.text}}
+            </ion-text> 
+        </ion-chip>
+    <ion-chip padding style="padding: 12px" color="primary" slot="start" *ngIf="answer.from==='boot'">
+        <ion-text>
+            {{answer.text}}
+          </ion-text> 
+      </ion-chip>
+  </ion-item> -->
+  <ion-grid>
+    <ion-row *ngFor="let answer of answers" style="margin-bottom:5px;float: right;width: 100%">
+      <ion-col size="12" style="float: right;" *ngIf="answer.from==='user'">
+           <ion-card text-right no-margin no-padding>
+              <ion-card-header color="medium">
+                 {{answer.text}}
+                </ion-card-header>
+          </ion-card>
+      </ion-col>
+      <ion-col size="12" style="float: left;" *ngIf="answer.from==='boot'">
+        <ion-card text-left no-margin no-padding>
+           <ion-card-header color="secondary">
+              {{answer.text}}
+             </ion-card-header>
+       </ion-card>
+   </ion-col>
+       </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer >
+    
+  
+    <ion-toolbar color="light">
+       <ion-input placeholder="posez votre question"  type="text" [(ngModel)]="question"></ion-input>
+          <ion-buttons slot="end">
+            <ion-button
+            [disabled]="!question || question===''"
+              size="small"
+              shape="round"
+              color="primary"
+              (click)="ask(question)"
+              tappable
+            >
+              <ion-icon name="send"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+      </ion-toolbar>
+</ion-footer>
+

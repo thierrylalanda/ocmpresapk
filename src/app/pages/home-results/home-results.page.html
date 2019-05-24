@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'home.title' | translate}}</ion-text>
+        </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card no-margin class="no-radius">
+    <ion-item lines="none" color="medium">
+      <ion-label>
+        <h2 no-margin class="fw500 no-margin">
+          <ion-text color="dark">{{'home.sub-title' | translate}}</ion-text>
+        </h2>
+
+        <!-- <p class="text-11x no-margin">
+          <ion-text  color="primary">{{yourLocation}}</ion-text>
+        </p> -->
+      </ion-label>
+      <!-- <ion-button shape="round" fill="outline" size="small" color="primary" (click)="alertLocation()">
+        Contacter nous
+        <ion-icon name="locate"></ion-icon>
+      </ion-button> -->
+    </ion-item>
+  </ion-card>
+  
+  <div class="home-hello">
+      <img src="assets/img/misc/background.jpg" />
+  
+      <div class="hello-title" text-wrap>
+        <h1>{{'home.eh2s_offre' | translate}}</h1>
+        {{'home.new_world' | translate}}
+      </div>
+    </div>
+
+   <ion-row >
+      <ion-card class="bg-white" no-margin>
+          <ion-card-content>
+            <h2 margin-bottom>
+              <ion-text color="primary"><strong> {{'home.NOTRE_VISION' | translate}}</strong></ion-text>
+            </h2>
+            <p>{{'home.NOTRE_VISION_TEXT' | translate}}</p>
+            
+          </ion-card-content>
+        </ion-card>
+     </ion-row>
+     <ion-list no-border>
+        <ion-list-header>
+          <ion-text color="dark">
+            <h5>{{'home.TEXT_TO_HELP' | translate}}</h5>
+          </ion-text>
+        </ion-list-header>
+        <ion-item (click)="callUs()">
+            <ion-icon name="phone-portrait" slot="start" color="primary"></ion-icon>
+            <ion-label class="label" color="primary">{{'home.APPELER_SERVICE' | translate}} </ion-label>
+          </ion-item>
+        <ion-item (click)="openFacebookPage()">
+            <ion-icon name="logo-facebook" slot="start" color="primary"></ion-icon>
+            <ion-label class="label" color="primary"> {{'home.SUIVRE_SUR_FACEBOOK' | translate}}  </ion-label>
+          </ion-item>
+          <ion-item (click)="goToHelp()" lines="none">
+            <ion-icon name="help-circle" slot="start" color="primary"></ion-icon>
+            <ion-label class="label" color="primary"> {{'home.AIDE_LOGICIEL' | translate}} </ion-label>
+          </ion-item>
+      </ion-list>
+</ion-content>
+  

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button color="primary" (click)="closeModal()">
+            <ion-icon name="close" color="light"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>
+    	Options de recherche
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+ 
+	<ion-grid></ion-grid>
+	<ion-item margin-bottom>
+			<ion-label class="no-margin-bottom">
+				<ion-text color="dark" class="fw500">Du :</ion-text>
+			</ion-label>
+	
+			<ion-datetime color="secondary" value="" min="2016" max="{{year+1}}-12-31" [(ngModel)]='date_debut' display-format="DD/MM/YYYY"></ion-datetime>
+		</ion-item>
+		<ion-item margin-bottom>
+				<ion-label class="no-margin-bottom">
+					<ion-text color="dark" class="fw500">Au :</ion-text>
+				</ion-label>
+		
+				<ion-datetime color="secondary" value="" min="2016" max="{{year+1}}-12-31" [(ngModel)]='date_fin' display-format="DD/MM/YYYY"></ion-datetime>
+			</ion-item>
+	<ion-button expand="full" color="primary" (click)="search()">Rechercher</ion-button>
+</ion-content>

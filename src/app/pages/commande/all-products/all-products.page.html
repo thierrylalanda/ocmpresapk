@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/commande/add-commande"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'all_products.title' | translate}}</ion-text>
+        </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="saveAllProduct()">
+        <ion-icon name="save"></ion-icon>
+      </ion-button>
+       </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="notifications($event)">
+          <ion-icon name="cart"></ion-icon>
+          <ion-badge color="dark" slot="end">{{allProductToMarket.length}}</ion-badge>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey" debounce="2000" (ionChange)="onSearch($event)" animated></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+     <ion-row >
+        
+          <ion-col size-xs="12" size-sm="6" *ngFor="let art of allProduct | slice:0:limitTo">
+              <ion-card>
+                  <ion-card-header>
+                    <ion-card-subtitle><ion-text color="dark" class="fw500">{{art.nom}}</ion-text></ion-card-subtitle>
+                    <ion-card-title><ion-note>{{art.code}}-{{art.prix | number}}  Total : {{art.prix* art.quantite | number}} </ion-note></ion-card-title>
+                    <ion-item lines="none" class="no-margin-bottom">
+                        <!-- <ion-chip color="danger">
+                            <ion-input type="number"  [(ngModel)]='art.prix' placeholder="prix"></ion-input>
+                          </ion-chip> -->
+                        <ion-chip color="secondary">
+                            <ion-input type="number"   [(ngModel)]='art.quantite' placeholder="qte"></ion-input>
+                          </ion-chip>
+                        <ion-button size="small"  shape="round" end (click)='addProduct(art)' *ngIf="!art.disabled">
+                            <ion-icon name="basket"></ion-icon>
+                          </ion-button>
+                          <ion-button size="small" shape="round" end (click)='removeProduct(art)' *ngIf="art.disabled">
+                            <ion-icon name="trash" color="danger"></ion-icon>
+                          </ion-button>
+                      </ion-item>
+                  </ion-card-header>
+            
+                </ion-card>
+              <!-- <ion-item>
+                  <ion-label class="no-margin-bottom" floating>
+                    <ion-text color="dark" class="fw500">{{art.nom}}</ion-text>
+                   <p> <ion-note>{{art.code}}-{{art.prix}}</ion-note>
+                   </p>
+                  </ion-label>
+                  <ion-chip color="danger">
+                      <ion-input type="number"  [(ngModel)]='art.prix' placeholder="prix"></ion-input></ion-chip>
+                  <br>
+                  <ion-chip color="secondary" size="small">
+                    <ion-input type="number"   [(ngModel)]='art.quantite' end placeholder="Qte"></ion-input></ion-chip>
+                 
+                  <ion-button size="small" shape="round" end (click)='addProduct(art)' *ngIf="!art.disabled">
+                    <ion-icon name="basket"></ion-icon>
+                  </ion-button>
+                  <ion-button size="small" shape="round" end (click)='removeProduct(art)' *ngIf="art.disabled">
+                    <ion-icon name="trash" color="danger"></ion-icon>
+                  </ion-button>
+                </ion-item> -->
+        </ion-col>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="chargement des données...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </ion-row>
+      </ion-grid>
+</ion-content>

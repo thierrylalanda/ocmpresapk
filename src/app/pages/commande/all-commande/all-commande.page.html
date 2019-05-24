@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/commande"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'all_commande.title' | translate}}</ion-text>
+        </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+            <ion-icon name="options"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+      <ion-searchbar (keyup)="onSearch($event)" animated></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+    <ion-grid>
+              <ion-row>
+            <ion-col  size-xs="12" size-sm="6" *ngFor="let commande of allCommande | filterbyetat : active | orderBy : '-' | slice:0:limitTo">
+              <ion-item (click)="showMore(commande)">
+                    <ion-label class="no-margin-bottom" floating>
+                      <ion-note class="">{{ commande.client.nom}} </ion-note><br>
+                      <ion-text color="dark" class="fw500"><strong class="numero">N° {{ commande.id }} </strong>
+                        <ion-badge *ngIf="commande.etatc.id == 1" color="danger"> Encours</ion-badge>
+                        <ion-badge *ngIf="commande.etatc.id == 2" color="primary"> Attente Validation</ion-badge>
+                        <ion-badge *ngIf="commande.etatc.id == 3" color="warning"> Attente livraison</ion-badge>
+                        <ion-badge *ngIf="commande.etatc.id == 4" color="success"> Livré</ion-badge>
+                        <ion-badge *ngIf="commande.etatc.id == 5" color="secondary"> Encours de livraison</ion-badge>
+                        <ion-badge *ngIf="!commande.etatc.id" color="dark"> Non enregistrée</ion-badge>
+                      </ion-text><br>
+                      <strong>Total : </strong>
+                      <ion-note class="">{{ commande.prixtotal | number }} </ion-note>
+                      <strong> Qte</strong> : {{ commande.qtotal | number }}
+                       </ion-label>
+                  <p item-end> <ion-note>{{ commande.datec | date : 'dd/MM' }}</ion-note></p>
+              </ion-item>
+          </ion-col>
+          <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content
+              loadingSpinner="bubbles"
+              loadingText="chargement des données...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+          </ion-row>
+            
+         </ion-grid>
+</ion-content>

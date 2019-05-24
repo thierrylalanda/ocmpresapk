@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home-results"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'home_commande.title' | translate}}</ion-text>
+        </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+     <ion-row>
+       <!-- *ngIf="code && (code.includes(100) ||code.includes(102) || code.includes(101) || code.includes(104))" -->
+          <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(100) ||code.includes(102) || code.includes(101) || code.includes(104))">
+          <ion-card class="quick-action" class="tile" (click)="navigateToAdd()">
+            <ion-card-content>
+              <ion-icon name="add-circle-outline" color="primary"></ion-icon>
+              <span> {{'home_commande.new_commande' | translate}}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(100) || code.includes(101) || code.includes(104))">
+          <ion-card class="quick-action" class="tile" (click)="navigateToTraitement()">
+            <ion-card-content>
+              <ion-icon name="cart" color="primary"></ion-icon>
+              <span> {{'home_commande.traiter_commande' | translate}}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(103) ||code.includes(102) || code.includes(101) || code.includes(104))">
+          <ion-card class="quick-action" class="tile" (click)="navigateToValidation()">
+            <ion-card-content>
+              <ion-icon name="checkmark" color="primary"></ion-icon>
+              <span> {{'home_commande.reception_commande' | translate}}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" *ngIf="societe && societe.gestmarge===1 && ( code && code.includes(104))">
+          <ion-card class="quick-action" class="tile" (click)="navigateToMarge()">
+            <ion-card-content>
+              <ion-icon name="cash" color="primary"></ion-icon>
+              <span> {{'home_commande.marges_ristournes' | translate}}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(101) || code.includes(102) || code.includes(104))">
+          <ion-card class="quick-action" class="tile" (click)="navigateToHistorique()">
+            <ion-card-content>
+              <ion-icon name="filing" color="primary"></ion-icon>
+              <span> {{'home_commande.historique_commande' | translate}}</span>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(101) || code.includes(104))">
+            <ion-card class="quick-action" class="tile" (click)="navigateToArticle()">
+              <ion-card-content>
+                <ion-icon name="pricetags" color="primary"></ion-icon>
+                <span> {{'home_commande.articles' | translate}}</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size-xs="12" size-sm="6" *ngIf="code && (code.includes(100) ||code.includes(102) || code.includes(101) || code.includes(104))">
+              <ion-card class="quick-action" class="tile" (click)="ScanBarCode()">
+                <ion-card-content>
+                  <ion-icon name="qr-scanner" color="primary"></ion-icon>
+                  <span> {{'home_commande.scan' | translate}}</span>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+        </ion-row>
+</ion-content>
+  

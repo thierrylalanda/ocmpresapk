@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="/incident"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'all_incident.title' | translate}}</ion-text>
+        </ion-text>
+      </ion-title>
+      <ion-buttons slot="end">
+          <ion-button
+            size="small"
+            shape="round"
+            color="medium"
+            (click)="refreshClient()"
+            tappable
+          >
+            <ion-icon name="refresh"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar *ngIf="active && active.length===5">
+      <ion-item>
+        <ion-label>
+          <ion-icon name="search" item-start></ion-icon>
+          {{'all_incident.statut' | translate}}
+        </ion-label>
+        <ion-select interface="alert" multiple="true" (ionChange)="FilterList($event)">
+          <ion-select-option *ngFor='let etat of etats' [value]="etat.code">{{etat.nom}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <p color="dark" *ngIf="societe && societe.gesttourner===1">{{'all_incident.clients_tourner' | translate}} {{tourner.numc}}</p>
+            <ion-col>
+                  <ion-item>
+                       <ion-label>{{'nouvelle_commande.client' | translate}}</ion-label>
+              <ionic-selectable
+                [(ngModel)]="cclient"
+                [items]="clients"
+                itemValueField="id"
+                itemTextField="nom"
+                [canSearch]="true"
+                (onChange)="chargerIncidentsClient($event)"
+              >
+              </ionic-selectable>
+                    </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+<ion-grid>
+  <ion-row>
+    <ion-col size-xs="12" size-sm="6" *ngFor="let incident of allIncident  | filterincident : active ; let i = index">
+      <ion-item  (click)="showMore(incident,i)">
+        <ion-avatar slot="start">
+          <img *ngIf="incident.state.code ==501" src="assets/imgs/1.png">
+          <img *ngIf="incident.state.code==200" src="assets/imgs/3.png">
+          <img *ngIf="incident.state.code==401" src="assets/imgs/7.png">
+          <img *ngIf="incident.state.code==404" src="assets/imgs/2.png">
+          <img *ngIf="incident.state.code==502" src="assets/imgs/4.png">
+        </ion-avatar>
+        <ion-label class="no-margin-bottom" floating>
+            <ion-text color="dark" class="fw500">{{incident.title}}</ion-text>
+            <p>
+              <ion-note>{{incident.description}} </ion-note>
+            </p>
+          </ion-label>
+        <p slot="end">{{incident.dateCreate | date :'dd/MM'}}</p>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

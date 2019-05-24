@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" text-center class="fw700">Tickets N° {{ incident.id }}</ion-text>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="close" (click)="dismiss()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-border>
+      <ion-item-group>
+    <ion-card>
+      <ion-card-header color="primary">
+        <ion-card-title>DETAILS INCIDENT</ion-card-title>
+      </ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size-xs="12" size="12">
+              <strong>Client : </strong> {{ client.nom }}
+          </ion-col>
+          <ion-col size-xs="12" size="12">
+              <strong>Objet : </strong> {{ incident.title }}
+          </ion-col>
+          <ion-col size-xs="12" size="12">
+              <strong>Description : </strong> <p [innerHTML]="incident.description"></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+        <ion-item class="activated" lines="none">
+            <ion-button fill="outline" slot="start">{{ incident.state.nom }}</ion-button>
+          </ion-item>
+      </ion-card>
+  </ion-item-group>
+  <ion-item-group>
+     
+   <ion-card>
+      <ion-card-header color="primary">
+          <ion-card-title>AUTRES INFORMATIONS</ion-card-title>
+        </ion-card-header>
+      <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col size-xs="12" size="12">
+                  Crée le : {{ incident.dateCreate | date }}
+              </ion-col>
+              <ion-col size-xs="12" size="12" *ngIf="incident.dateModif">
+                  Modifié le : {{ incident.dateModif | date }}
+              </ion-col>
+              <ion-col size-xs="12" size="12" *ngIf="incident.dateHope">
+                  Delais : {{ incident.dateHope | date }}
+              </ion-col>
+              <ion-col size-xs="12" size="12" *ngIf="incident.userplainteList.length != 0">
+                  Responsable : {{ incident.userplainteList[0].responsable }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size-xs="12" size="12">
+                    Rubrique : <span [innerHTML]="incident.srubriqueid.rubrique"> </span>
+                </ion-col>
+                <ion-col size-xs="12" size="12">
+                    Sous Rubrique :
+                    <span [innerHTML]="incident.srubriqueid.name"> </span>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-card-content>
+      <ion-item class="activated" lines="none"  *ngIf="incident.isInDelais == 1 && incident.isaffect != 0">
+          <ion-button fill="outline" slot="start">
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>Hors les delais</div>
+          </ion-button>
+         </ion-item>
+         <ion-item class="activated" lines="none"  *ngIf="incident.isInDelais == 0 && incident.isaffect != 0">
+            <ion-button fill="outline" slot="start"  color="danger">
+                <ion-icon name="thumbs-down"></ion-icon>
+                <div>Dans les delais</div>
+            </ion-button>
+           </ion-item>
+           <ion-item class="activated" lines="none"  *ngIf="incident.isaffect == 0">
+              <ion-button fill="outline" slot="start"  color="warning">
+                  <ion-icon name="thumbs-down"></ion-icon>
+                  <div>Non Affecté</div>
+              </ion-button>
+             </ion-item>
+    </ion-card>
+ </ion-item-group>
+ <ion-item-group *ngIf="incident.photo && incident.photo != ''">
+    <ion-item-divider color="primary">Pièce  Jointe</ion-item-divider>
+    <ion-item >
+       <img [src]="incident.photo" />
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+      <ion-card *ngIf="incident.ttraitementTicketList.length !==0">
+          <ion-card-header color="primary">
+              <ion-card-title>REPONSES</ion-card-title>
+            </ion-card-header>
+          <ion-card-content>
+            <ion-row *ngFor="let reps of incident.ttraitementTicketList">
+              <ion-col size-xs="12" size="12">
+                <p>
+                  <span class="date"> Date : {{ reps.dateComment | date }}</span>
+                </p>
+                <p [innerHTML]="reps.commentaire"></p>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+          <ion-item class="activated" lines="none">
+              <ion-button  slot="start">
+                  <ion-icon name="text"></ion-icon>
+                  <div>{{ incident.ttraitementTicketList?.length }} Réponses</div>
+              </ion-button>
+             </ion-item>
+        </ion-card>
+        <ion-card *ngIf="incident.descriptionFermeture">
+            <ion-card-header color="primary">
+                <ion-card-title>Détails fermeture</ion-card-title>
+              </ion-card-header>
+          <ion-card-content>
+            <strong>Description Fermeture</strong>
+            <p>Date : {{ incident.dateFer | date }}</p>
+            <p [innerHTML]="incident.descriptionFermeture">
+              {{ incident.descriptionFermeture }}
+            </p>
+            
+          </ion-card-content>
+        </ion-card>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

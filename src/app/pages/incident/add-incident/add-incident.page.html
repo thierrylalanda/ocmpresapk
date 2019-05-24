@@ -1,0 +1,142 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button
+          defaultHref="/incident"
+        ></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        <ion-text color="light">
+          <ion-text color="light" class="fw700">{{'add_incident.title' | translate}}</ion-text>
+        </ion-text>
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button
+          size="small"
+          shape="round"
+          color="medium"
+          (click)="saveIncident()"
+          tappable
+        >
+          <ion-icon name="save"></ion-icon>
+        </ion-button>
+        <!-- <ion-button
+        *ngIf="1===2"
+          size="small"
+          shape="round"
+          color="medium" (click)="moreOption($event)" tappable>
+          <ion-icon name="more"></ion-icon>
+        </ion-button> -->
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <!--  <ion-spinner name="circles"></ion-spinner> -->
+    <form class="list-form" [formGroup]="incidentForm">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-xs="12" size-sm="6">
+            <ion-item>
+              <ion-label>{{'nouvelle_commande.client' | translate}}</ion-label>
+              <ionic-selectable
+              formControlName="client"
+                [(ngModel)]="client"
+                [items]="clients"
+                itemValueField="id"
+                itemTextField="nom"
+                [canSearch]="true"
+                (onChange)="portChange($event)"
+              >
+              </ionic-selectable>
+            </ion-item>
+          </ion-col>
+         <!--  <ion-col size-xs="12" size-sm="6">
+            <ion-item no-padding class="animated fadeInUp">
+              <ion-label stacked>
+               Date
+              </ion-label>
+              <ion-datetime
+                color="secondary"
+                value="{{ date_incident }}"
+                min="2016"
+                max="{{ year + 1 }}-12-31"
+                [(ngModel)]="date_incident"
+                display-format="DD/MM/YYYY"
+              ></ion-datetime>
+            </ion-item>
+          </ion-col> -->
+          <ion-col size-xs="12" size-sm="6">
+              <ion-item>
+                <ion-label>{{'add_incident.rubrique' | translate}}</ion-label>
+                <ionic-selectable
+                formControlName="rubrique"
+                  [(ngModel)]="rubrique"
+                  [items]="rubriques"
+                  itemValueField="id"
+                  itemTextField="name"
+                  [canSearch]="true"
+                  (onChange)="ChangeR($event)"
+                >
+                </ionic-selectable>
+              </ion-item>
+            </ion-col>
+           <ion-col size-xs="12" size-sm="6">
+                  <ion-item>
+                    <ion-label>{{'add_incident.sous_rubrique' | translate}}</ion-label>
+                    <ionic-selectable
+                    formControlName="srubrique"
+                      [(ngModel)]="srubrique"
+                      [items]="srubriques"
+                      itemValueField="id"
+                      itemTextField="name"
+                      [canSearch]="true"
+                      (onChange)="ChangeSR($event)">
+                    </ionic-selectable>
+                  </ion-item>
+                </ion-col>
+                <ion-col size-xs="12" size-sm="6">
+                  <ion-item>
+                    <ion-label>{{'add_incident.source' | translate}}</ion-label>
+                    <ionic-selectable
+                    formControlName="source"
+                      [(ngModel)]="source"
+                      [items]="sources"
+                      itemValueField="id"
+                      itemTextField="name"
+                      [canSearch]="true"
+                      (onChange)="ChangeSource($event)"
+                    >
+                    </ionic-selectable>
+                  </ion-item>
+                </ion-col>
+                <ion-col size-xs="12" size-sm="6">
+                    <ion-item no-padding class="animated fadeInUp">
+                        <ion-label position='floating'>{{'add_incident.objet' | translate}}</ion-label>
+                        <ion-input  formControlName="title" type="text" [(ngModel)]="title"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size-xs="12" size-sm="6">
+                    <ion-item no-padding class="animated fadeInUp">
+                        <ion-label position='floating'>{{'add_incident.description' | translate}}</ion-label>
+                        <ion-textarea  formControlName="description" [(ngModel)]="description"></ion-textarea>
+                    </ion-item>
+                   
+                </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    <ion-grid>
+      
+      <ion-row *ngIf="photo && photo != ''">
+          <ion-col size="12">
+            <ion-item *ngIf="photo && photo != ''">
+              <a (click)="AnnulerImage()">{{'add_incident.annuler' | translate}}</a><br />
+              <img [src]="photo" />
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+    </ion-grid>
+  </ion-content>
+  

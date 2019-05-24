@@ -1,0 +1,102 @@
+{
+    "menu":{
+        "accueil":"Home",
+        "a_propos":"About",
+        "parametre":"Settings",
+        "commande":"Orders"
+    },
+    "home":{
+    "title":"OCM Application",
+    "sub-title":"OCM/HOME",
+    "eh2s_offre":"EH2S offers you.",
+    "new_world":"a new digitalized world",
+    "NOTRE_VISION":"Our Vision",
+    "NOTRE_VISION_TEXT":"Our vision is to provide the highest quality IT services and ensure customer satisfaction at least at 97%.",
+    "TEXT_TO_HELP":"Need help? We're here",
+    "APPELER_SERVICE":"Call customer service",
+    "SUIVRE_SUR_FACEBOOK":"Follow us on facebook",
+    "AIDE_LOGICIEL":"Software Help"
+},
+"home_commande":{
+    "title":"Order Management",
+"new_commande":"New Order",
+"traiter_commande":"Process Order",
+"reception_commande":"Reception Order",
+"marges_ristournes":"Margins and Rebates",
+"historique_commande":"Order history",
+"articles":"Articles",
+"scan":"Scanner"
+    },
+    "nouvelle_commande":{
+        "title":"New Order",
+        "client":"Customer",
+        "livraison":"Delivery",
+        "total":"Total"
+     },
+     "all_commande":{
+        "title":"Order"
+    },
+    "all_products":{
+        "title":"All Products"
+    },
+    "article":{
+        "title":"Articles"
+    },
+    "marge_ristourne": {
+    "title":"Margin and Discount",
+    "marge":"Margin",
+    "ristourne":"Discount"
+    },
+    "voir_commande":{
+        "title":"Order N°",
+        "date_commande":"Date Order",
+        "date_livraison":"Date Delivery",
+        "etat":"State"
+    },
+    "voir_marge":{
+        "title":"Order Margin"
+    },
+"a_propos":{
+    "title":"About",
+    "description":"Order taking software, stock management, roadmap management, incident management",
+    "logiciel":"Software",
+    "version":"Version",
+    "concepteur":"Designers",
+    "ocm_web":"OCM WEB",
+    "ocm_version_web":"OCM web version",
+    "site_web":"Website",
+    "societe":"Society"
+},
+"parametre": {
+    "title":"Settings",
+    "general":"General",
+    "langue":"Language",
+    "notification":"Notification",
+    "autres":"Others",
+    "synchronisation":"Auto Synchronization",
+    "interval":"Interval",
+    "lancer_synchro":"Launch synchronization",
+    "notification_vocale":"Voice Notification"
+},
+"home_incident":{
+    "title":"Incidents Management",
+    "new_incident":"New Incident",
+    "traiter_incident":"Process Incident",
+    "fermer_incident":"Close Incident",
+    "historique_incident":"History Incident"
+    },
+    "add_incident": {
+        "title": "New Incident",
+        "rubrique":"Category",
+        "sous_rubrique":"Under Category",
+        "source":"Source",
+        "objet":"Object",
+        "description":"Description",
+        "annuler":"Cancel"
+      },
+      "all_incident":{
+        "title":"Incidents",
+        "statut":"Status",
+        "clients_tourner":"Tour customers N°"
+    }
+}

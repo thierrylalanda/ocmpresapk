@@ -1,0 +1,28 @@
+<ion-fab vertical="bottom" horizontal="center" slot="fixed" class="animated fadeInDown">
+    <ion-fab-button (click)="togglePopupMenu()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="apps"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <div class="popup-menu">
+    <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}"></div>
+    <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+        <div class="popup-menu-item" *ngIf="societe && societe.gesttourner===1" (click)="ChargerClients()">
+            <ion-icon name="contact" slot="middle" size="large"></ion-icon>
+            <span>Tourners</span>
+          </div>
+      <div class="popup-menu-item" (click)="addProduct()">
+        <ion-icon name="basket" slot="middle" size="large"></ion-icon>
+        <span>Produits</span>
+      </div>
+      <div class="popup-menu-item" (click)="addSignature()">
+        <ion-icon name="finger-print" slot="middle" size="large"></ion-icon>
+        <span>Signature</span>
+      </div>
+      <div class="popup-menu-item" (click)="printProduct()">
+        <ion-icon name="print" slot="middle" size="large"></ion-icon>
+        <span>Imprimer</span>
+      </div>
+    </div>
+  </div>

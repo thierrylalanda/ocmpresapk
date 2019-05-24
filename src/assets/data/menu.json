@@ -1,0 +1,33 @@
+ [
+    {
+      "title": "menu.accueil",
+      "url": "/home-results",
+      "direct": "root",
+      "icon": "home"
+    },
+    {
+      "title": "menu.commande",
+      "url": "/commande",
+      "direct": "root",
+      "icon": "cart"
+    },
+    {
+      "title": "incident",
+      "url": "/incident",
+      "direct": "root",
+      "icon": "bug"
+    },
+    {
+      "title": "menu.a_propos",
+      "url": "/about",
+      "direct": "forward",
+      "icon": "information-circle-outline"
+    },
+
+    {
+      "title": "menu.parametre",
+      "url": "/settings",
+      "direct": "forward",
+      "icon": "cog"
+    }
+  ]

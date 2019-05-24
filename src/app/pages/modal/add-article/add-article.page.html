@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="closeModal()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Nouvel Article
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button  color="primary" (click)="Save()">
+          <ion-icon name="save" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12" size-sm="6">
+        <ion-item margin-bottom>
+          <ion-label class="no-margin-bottom">
+            <ion-text color="dark" class="fw500">Nom :</ion-text>
+          </ion-label>
+          <ion-input  type="text"  color="secondary"  value="{{article.nom}}"  [(ngModel)]="article.nom"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size-xs="12" size-sm="6">
+          <ion-item margin-bottom>
+            <ion-label class="no-margin-bottom">
+              <ion-text color="dark" class="fw500">Code :</ion-text>
+            </ion-label>
+            <ion-input  type="text"  color="secondary"  value="{{article.code}}"  [(ngModel)]="article.code"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size-xs="12" size-sm="6">
+            <ion-item margin-bottom>
+              <ion-label class="no-margin-bottom">
+                <ion-text color="dark" class="fw500">Unite :</ion-text>
+              </ion-label>
+              <ion-input  type="text"  color="secondary"  value="{{article.unite}}"  [(ngModel)]="article.unite"></ion-input>
+            </ion-item>
+          </ion-col>
+        <ion-col size-xs="12" size-sm="6">
+            <ion-item margin-bottom>
+              <ion-label class="no-margin-bottom">
+                <ion-text color="dark" class="fw500">Prix :</ion-text>
+              </ion-label>
+              <ion-input  type="number"  color="secondary"  value="{{article.prix}}"  [(ngModel)]="article.prix"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size-xs="12" size-sm="6">
+              <ion-item margin-bottom>
+                <ion-label class="no-margin-bottom">
+                  <ion-text color="dark" class="fw500">Stock :</ion-text>
+                </ion-label>
+                <ion-input  type="number"  color="secondary"  value="{{article.stock}}"  [(ngModel)]="article.stock"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size-xs="12" size-sm="6">
+                <ion-item margin-bottom>
+                  <ion-label class="no-margin-bottom">
+                    <ion-text color="dark" class="fw500">Seuil :</ion-text>
+                  </ion-label>
+                  <ion-input  type="number"  color="secondary"  value="{{article.seuil}}"  [(ngModel)]="article.seuil"></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col size-xs="12" size-sm="6" *ngIf="societe && societe.gestmarge===1">
+                  <ion-item margin-bottom>
+                    <ion-label class="no-margin-bottom">
+                      <ion-text color="dark" class="fw500">Marge :</ion-text>
+                    </ion-label>
+                    <ion-input  type="number"  color="secondary"  value="{{article.margeFournisseur}}"  [(ngModel)]="article.margeFournisseur"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size-xs="12" size-sm="6" *ngIf="societe && societe.gestmarge===1">
+                    <ion-item margin-bottom>
+                      <ion-label class="no-margin-bottom">
+                        <ion-text color="dark" class="fw500">Ristourne :</ion-text>
+                      </ion-label>
+                      <ion-input  type="number"  color="secondary"  value="{{article.margeClient}}"  [(ngModel)]="article.margeClient"></ion-input>
+                    </ion-item>
+                  </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button expand="full" color="primary" (click)="Save()"
+    >Enregistrer</ion-button
+  >
+</ion-content>

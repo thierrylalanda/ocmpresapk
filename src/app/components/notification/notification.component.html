@@ -1,0 +1,30 @@
+<ion-list no-padding no-margin>
+    <ion-list-header color="dark">
+      <ion-label class="fw700">Notification <ion-icon name="notifications"></ion-icon></ion-label>
+      <ion-button color="danger" (click)="cancel()">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+    </ion-list-header>
+
+        <ion-card color="light" class="text-10" *ngFor="let not of allnotif;let i = index">
+          <ion-item> <ion-label color="primary" >
+              {{not.title}}
+            </ion-label> </ion-item>
+          <ion-card-content>
+            <p [innerHTML]="not.message">
+              {{ not.message }}
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+    
+
+    <!-- <ion-item color="light" class="text-10">
+      <ion-icon name="mail-open" color="primary"></ion-icon>
+      <ion-label>New Offer 10% OFF by month!</ion-label>
+    </ion-item> -->
+
+      <!-- <ion-button color="danger" (click)="Cancel()">
+        <ion-text>Cancel</ion-text>
+      </ion-button> -->
+  </ion-list>

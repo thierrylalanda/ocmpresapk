@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "373541527793",
+    "firebase_url": "https://ocmapp-8ebde.firebaseio.com",
+    "project_id": "ocmapp-8ebde",
+    "storage_bucket": "ocmapp-8ebde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373541527793:android:09d9e46d6197447f",
+        "android_client_info": {
+          "package_name": "com.eh2s.ocmapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373541527793-b13dvmnfj3tlbthtpsr95d9ipvdccrv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzPc9EOywgMbW-6EeiBM1IqPJIq2dcR3U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

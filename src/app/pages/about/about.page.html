@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'a_propos.title' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="bg-profile" text-center padding>
+    <img src="assets/img/misc/ocm_logo_login.png">
+  </div>
+
+  <ion-card class="bg-white" no-margin>
+    <ion-card-content>
+      <h1 margin-bottom>
+        <ion-text color="primary"><strong>OCM Application</strong></ion-text>
+      </h1>
+      
+      <p margin-bottom>
+        {{'a_propos.description' | translate}}
+      </p>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-list no-border>
+    <ion-list-header>
+      <ion-text color="dark">
+        <h5>{{'a_propos.logiciel' | translate}}</h5>
+      </ion-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="settings" slot="start" color="primary"></ion-icon>
+      <ion-label color="primary">{{'a_propos.version' | translate}} : 1.0.0</ion-label>
+  </ion-item>
+     <ion-item>
+          <strong>{{'a_propos.concepteur' | translate}} :</strong> EH2S
+        </ion-item>
+        <ion-item (click)="sendMail('eh2s.sarl@gmail.com')">
+            <strong>Mail :</strong>eh2s.sarl@gmail.com
+            <ion-icon  slot='end' name="mail" color="primary"> </ion-icon> 
+          </ion-item>
+          <ion-item>
+            <strong>{{'a_propos.ocm_web' | translate}} :</strong> <a target="_blank" href="https://www.eh2s-app.com/ocm">{{'a_propos.ocm_version_web' | translate}}</a> 
+          </ion-item>
+        <ion-item>
+          <strong>{{'a_propos.site_web' | translate}} :</strong> <a target="_blank" href="https://www.eh2s.com">www.eh2s.com</a> 
+        </ion-item>
+  </ion-list>
+  <ion-list no-border>
+      <ion-list-header>
+        <ion-text color="dark">
+          <h5>{{'a_propos.societe' | translate}}</h5>
+        </ion-text>
+      </ion-list-header>
+      <ion-item>
+         <ion-label color="primary">{{societe.nom}}</ion-label>
+          </ion-item>
+      <ion-item>
+        <ion-icon name="call" slot="start" color="primary"></ion-icon>
+        <ion-label class="label" color="primary"> {{societe.tel}} </ion-label>
+        <ion-icon name="more" (click)='showMore($event)' slot="end" color="primary"></ion-icon>
+      </ion-item>
+      <ion-item (click)="sendMail(societe.email)">
+          <ion-icon name="mail" slot="start" color="primary"></ion-icon>
+          <ion-label class="label" color="primary"> {{societe.email}} </ion-label>
+        </ion-item>
+        <ion-item (click)="goToHelp()">
+          <ion-icon name="help-circle" slot="start" color="primary"></ion-icon>
+          <ion-label class="label" color="primary"> Aide au logiciel </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

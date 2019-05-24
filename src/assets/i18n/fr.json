@@ -1,0 +1,102 @@
+{
+  "menu": {
+    "accueil": "Accueil",
+    "a_propos": "A Propos",
+    "parametre": "Parametre",
+    "commande": "Commande"
+  },
+  "home": {
+    "title": "OCM Application",
+    "sub-title": "OCM/ACCUEIL",
+    "eh2s_offre": "EH2S vous offre.",
+    "new_world": "un nouveau monde digitalisé",
+    "NOTRE_VISION": "Notre Vision",
+    "NOTRE_VISION_TEXT": "Notre vision est de fournir des services informatiques de la plus haute qualité et d’assurer la satisfaction du client au moins à 97%.",
+    "TEXT_TO_HELP": "Besoin d'aide? nous sommes là",
+    "APPELER_SERVICE": "Appeler le service client",
+    "SUIVRE_SUR_FACEBOOK": "Nous suivre sur facebook",
+    "AIDE_LOGICIEL": "Aide au logiciel"
+  },
+  "home_commande": {
+    "title": "Gestion Commandes",
+    "new_commande": "Nouvelle Commande",
+    "traiter_commande": "Traiter Commande",
+    "reception_commande": "Réception Commande",
+    "marges_ristournes": "Marges et Ristournes",
+    "historique_commande": "Historique Commande",
+    "articles": "Articles",
+    "scan": "Scanner"
+  },
+  "nouvelle_commande": {
+    "title": "Nouvelle Commande",
+    "client": "Client",
+    "livraison": "Livraison",
+    "total": "Total"
+  },
+  "all_commande": {
+    "title": "Commande"
+  },
+  "all_products": {
+    "title": "Tous les Produits"
+  },
+  "article": {
+    "title": "Articles"
+  },
+  "marge_ristourne": {
+    "title": "Marge et Ristourne",
+    "marge": "Marge",
+    "ristourne": "Ristourne"
+  },
+  "voir_commande": {
+    "title": "Commande N°",
+    "date_commande": "Date Commande",
+    "date_livraison": "Date Livraison",
+    "etat": "Etat"
+  },
+  "voir_marge": {
+    "title": "Marge commande"
+  },
+  "a_propos": {
+    "title": "A Propos",
+    "description": "Logiciel de prise de commande,gestion de stock, getion des feuilles de routes, gestion des incidents",
+    "logiciel": "Logiciel",
+    "version": "Version",
+    "concepteur": "Concepteur",
+    "ocm_web": "OCM WEB",
+    "ocm_version_web": "OCM version web",
+    "site_web": "Site Web",
+    "societe": "Societe"
+  },
+  "parametre": {
+    "title": "Parametre",
+    "general": "General",
+    "langue": "Langue",
+    "notification": "Notification",
+    "autres": "Autres",
+    "synchronisation": "Synchronisation auto",
+    "interval": "Interval",
+    "lancer_synchro": "Lancer la Synchronisation",
+    "notification_vocale": "Notification Vocale"
+  },
+  "home_incident": {
+    "title": "Gestion Incidents",
+    "new_incident": "Nouvel Incident",
+    "traiter_incident": "Traiter Incident",
+    "fermer_incident": "Fermer Incident",
+    "historique_incident": "Historique Incident"
+  },
+  "add_incident": {
+    "title": "Nouvel Incident",
+    "rubrique":"Rubrique",
+    "sous_rubrique":"Sous Rubrique",
+    "source":"Source",
+    "objet":"Objet",
+    "description":"Description",
+    "annuler":"Annuler"
+  },
+  "all_incident":{
+      "title":"Incidents",
+      "statut":"Statut",
+      "clients_tourner":"Clients tourné N°"
+  }
+}
